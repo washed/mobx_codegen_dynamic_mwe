@@ -41,11 +41,47 @@ mixin _$SomeMobxStore on _SomeMobxStore, Store {
     });
   }
 
+  late final _$classInGeneratingCodeAtom =
+      Atom(name: '_SomeMobxStore.classInGeneratingCode', context: context);
+
+  @override
+  ClassInGeneratingCode get classInGeneratingCode {
+    _$classInGeneratingCodeAtom.reportRead();
+    return super.classInGeneratingCode;
+  }
+
+  @override
+  set classInGeneratingCode(ClassInGeneratingCode value) {
+    _$classInGeneratingCodeAtom.reportWrite(value, super.classInGeneratingCode,
+        () {
+      super.classInGeneratingCode = value;
+    });
+  }
+
+  late final _$classInGeneratedCodeAtom =
+      Atom(name: '_SomeMobxStore.classInGeneratedCode', context: context);
+
+  @override
+  dynamic get classInGeneratedCode {
+    _$classInGeneratedCodeAtom.reportRead();
+    return super.classInGeneratedCode;
+  }
+
+  @override
+  set classInGeneratedCode(dynamic value) {
+    _$classInGeneratedCodeAtom.reportWrite(value, super.classInGeneratedCode,
+        () {
+      super.classInGeneratedCode = value;
+    });
+  }
+
   @override
   String toString() {
     return '''
 someModel: ${someModel},
-someModelCompanion: ${someModelCompanion}
+someModelCompanion: ${someModelCompanion},
+classInGeneratingCode: ${classInGeneratingCode},
+classInGeneratedCode: ${classInGeneratedCode}
     ''';
   }
 }
